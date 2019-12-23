@@ -1,2 +1,4 @@
-/images/*.jpg
-/graphs
+*.jpg
+*.pb
+*.pbtxt
+*.xml
