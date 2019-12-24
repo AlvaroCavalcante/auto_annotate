@@ -3,14 +3,14 @@ from random import randrange
 import os
 
 class GenerateXml(object):
-    def __init__(self, box_array, im_width, im_height, classe):
-        self.classe = classe
+    def __init__(self, box_array, im_width, im_height, inferred_class):
+        self.inferred_class = inferred_class
         self.box_array = box_array
         self.im_width = im_width
         self.im_height = im_height
 
     def get_file_name(self):
-        xml_path = '/home/alvaro/auto_annotate/xml'
+        xml_path = 'your-local-path-here/xml'
         directory = os.path.basename(xml_path)
         file_list = os.listdir(directory)
 
@@ -30,7 +30,7 @@ class GenerateXml(object):
         
         for i in self.box_array:
             objectBox = ET.SubElement(annotation, "object")
-            ET.SubElement(objectBox, "name").text = self.classe
+            ET.SubElement(objectBox, "name").text = self.inferred_class
             ET.SubElement(objectBox, "pose").text = "Unspecified"
             ET.SubElement(objectBox, "truncated").text = "0"
             ET.SubElement(objectBox, "difficult").text = "0"
@@ -41,8 +41,8 @@ class GenerateXml(object):
             ET.SubElement(bndBox, "ymax").text = str(i['ymax'])
 
         arquivo = ET.ElementTree(annotation)
-        arquivo.write("/home/alvaro/auto_annotate/xml/" + file_name + ".xml")
+        arquivo.write("your-local-path-here/xml/" + file_name + ".xml")
 
 def main():
-    xml = GenerateXml([{'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}], '4000', '2000', 'bicho_mineiro')
+    xml = GenerateXml([{'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}], '4000', '2000', 'miner') # just for debuggind
     xml.gerenate_basic_structure()    
