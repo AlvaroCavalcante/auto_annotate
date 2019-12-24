@@ -110,7 +110,7 @@ try:
                     output_dict['detection_masks'] = output_dict['detection_masks'][0]
         return output_dict
 
-    count = 0
+    count = 1
     for image_path in TEST_IMAGE_PATHS:
         image = Image.open(image_path)
 
