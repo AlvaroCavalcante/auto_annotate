@@ -9,3 +9,5 @@
 - Add your pre-treined model and label map into the 'graphs' folder.
 - Add the images you want to label into the images folder
 - Change the xml path in generate_xml.py to put your own local path.
+- Inside the auto_annotate folder run: python3 scripts/detection_images.py
+- If everything is ok you will see the inference results and the xml in your respective folders!
