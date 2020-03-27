@@ -1,6 +1,6 @@
 ### Welcome to the auto-annotate images for object detection!
 
-## Prerequisites
+## Requirements
 - You will need to clone the tensorflow repository: https://github.com/tensorflow/models
 - Install the dependencies: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
 - Install the xElementTree dependency via pip
