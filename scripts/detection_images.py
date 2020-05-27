@@ -116,8 +116,10 @@ try:
 
         im_width, im_height = image.size
 
+        file_name = image.filename.split('/')[2].split('.')[0]
+
         im_width_inche = im_width // 77
-        im_height_inche = im_height // 77 #redimensioning the image resolution
+        im_height_inche = im_height // 77 # redimensioning the image resolution
 
         IMAGE_SIZE = (im_width_inche, im_height_inche)
 
@@ -131,6 +133,7 @@ try:
 
         # Visualization of the results of a detection.
         vis_util.visualize_boxes_and_labels_on_image_array(
+            file_name,
             image_np,
             output_dict['detection_boxes'],
             output_dict['detection_classes'],
