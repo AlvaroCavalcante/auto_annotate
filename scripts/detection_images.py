@@ -1,20 +1,14 @@
+import os
+import numpy as np
+from PIL import Image
+import tensorflow as tf
+from matplotlib import pyplot as plt
+import glob
+
 from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
 from object_detection.utils import ops as utils_ops
-import numpy as np
-import os
-import six.moves.urllib as urllib
-import sys
-import tarfile
-import tensorflow as tf
-import zipfile
 
-from collections import defaultdict
-from io import StringIO
-from matplotlib import pyplot as plt
-from PIL import Image
-import os
-import glob
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 PATH_TO_CKPT = './graphs/frozen_inference_graph.pb'
@@ -117,7 +111,7 @@ try:
         im_width, im_height = image.size
 
         im_width_inche = im_width // 77
-        im_height_inche = im_height // 77 #redimensioning the image resolution
+        im_height_inche = im_height // 77 # redimensioning the image resolution
 
         IMAGE_SIZE = (im_width_inche, im_height_inche)
 
