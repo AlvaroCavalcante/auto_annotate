@@ -110,6 +110,8 @@ try:
 
         im_width, im_height = image.size
 
+        file_name = image.filename.split('/')[2].split('.')[0]
+
         im_width_inche = im_width // 77
         im_height_inche = im_height // 77 # redimensioning the image resolution
 
@@ -130,6 +132,7 @@ try:
             output_dict['detection_classes'],
             output_dict['detection_scores'],
             category_index,
+            file_name=file_name,
             instance_masks=output_dict.get('detection_masks'),
             use_normalized_coordinates=True,
             line_thickness=10)
