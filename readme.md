@@ -1,6 +1,6 @@
 ### Welcome to the auto-annotate images for object detection!
 
-You are tired to label your images by hand to work with object detection ? So, this project will make your life easier, just annotate some images and let the machine do the rest for you!
+You are tired to label your images by hand to work with object detection? So, this project will make your life easier, just annotate some images and let the machine do the rest for you!
 
 ## Requirements
 - You will need to clone the tensorflow repository: https://github.com/tensorflow/models
