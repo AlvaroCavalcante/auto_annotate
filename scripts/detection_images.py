@@ -25,6 +25,9 @@ PATH_TO_LABELS = './graphs/label_map.pbtxt'
 # Path to the images you want to infer
 PATH_TO_TEST_IMAGES_DIR = './images'
 
+# Number of classes that you have in your label_map
+NUM_CLASSES = 90
+
 assert os.path.isfile('./graphs/frozen_inference_graph.pb')
 assert os.path.isfile(PATH_TO_LABELS)
 
@@ -33,7 +36,6 @@ assert len(TEST_IMAGE_PATHS) > 0, 'No image found in `{}`.'.format(
     PATH_TO_TEST_IMAGES_DIR)
 
 try:
-
     detection_graph = tf.Graph()
     with detection_graph.as_default():
         od_graph_def = tf.GraphDef()
@@ -44,7 +46,7 @@ try:
 
     label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
     categories = label_map_util.convert_label_map_to_categories(
-        label_map, max_num_classes=2, use_display_name=True)
+        label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
     category_index = label_map_util.create_category_index(categories)
 
     def load_image_into_numpy_array(image):
