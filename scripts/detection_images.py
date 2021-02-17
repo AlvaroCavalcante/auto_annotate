@@ -31,7 +31,7 @@ NUM_CLASSES = 90
 assert os.path.isfile('./graphs/frozen_inference_graph.pb')
 assert os.path.isfile(PATH_TO_LABELS)
 
-TEST_IMAGE_PATHS = glob.glob(os.path.join(PATH_TO_TEST_IMAGES_DIR, "*.*"))
+TEST_IMAGE_PATHS = glob.glob(os.path.join(PATH_TO_TEST_IMAGES_DIR, '*.jpg*'))
 assert len(TEST_IMAGE_PATHS) > 0, 'No image found in `{}`.'.format(
     PATH_TO_TEST_IMAGES_DIR)
 
