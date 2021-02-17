@@ -1,6 +1,5 @@
 import xml.etree.cElementTree as ET
-from random import randrange
-import os
+
 
 class GenerateXml(object):
     def __init__(self, box_array, im_width, im_height, inferred_class, file_name):
@@ -17,7 +16,7 @@ class GenerateXml(object):
         ET.SubElement(size, 'width').text = str(self.im_width)
         ET.SubElement(size, 'height').text = str(self.im_height)
         ET.SubElement(size, 'depth').text = '3'
-        
+
         for i in self.box_array:
             objectBox = ET.SubElement(annotation, 'object')
             ET.SubElement(objectBox, 'name').text = self.inferred_class
@@ -35,4 +34,4 @@ class GenerateXml(object):
 
 def main():
     xml = GenerateXml([{'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}, {'xmin': 0.5406094193458557, 'xmax': 0.6001364588737488, 'ymin': 0.6876631379127502, 'ymax': 0.7547240853309631}], '4000', '2000', 'miner', 'image_test.xml') # just for debuggind
-    xml.gerenate_basic_structure()    
+    xml.gerenate_basic_structure()

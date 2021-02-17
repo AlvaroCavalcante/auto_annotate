@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 import glob
 
 import tensorflow as tf
-import tensorflow.compat.v1 as tf
 
 from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
@@ -14,6 +13,7 @@ from object_detection.utils import ops as utils_ops
 tf_version = tf.__version__
 
 if int(tf_version.split('.')[0]) >= 2:
+    import tensorflow.compat.v1 as tf
     tf.disable_v2_behavior()
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
