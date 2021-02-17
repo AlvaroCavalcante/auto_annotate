@@ -793,6 +793,7 @@ def visualize_boxes_and_labels_on_image_array(
     # Create a display string (and color) for every box location, group any boxes
     # that correspond to the same location.
     new_xml = False
+    class_name = []
 
     box_to_display_str_map = collections.defaultdict(list)
     box_to_color_map = collections.defaultdict(str)
@@ -820,11 +821,11 @@ def visualize_boxes_and_labels_on_image_array(
                 if not skip_labels:
                     if not agnostic_mode:
                         if classes[i] in six.viewkeys(category_index):
-                            class_name = category_index[classes[i]]['name']
+                            class_name.append(category_index[classes[i]]['name'])
                             new_xml = True
                         else:
-                            class_name = 'N/A'
-                        display_str = str(class_name)
+                            class_name.append('N/A')
+                        display_str = str(class_name[i])
                 if not skip_scores:
                     if not display_str:
                         display_str = '{}%'.format(int(100*scores[i]))
