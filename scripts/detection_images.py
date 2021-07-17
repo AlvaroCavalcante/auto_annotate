@@ -1,20 +1,20 @@
-import os
-import numpy as np
-from PIL import Image
-from matplotlib import pyplot as plt
-import glob
-
-import tensorflow as tf
-
 from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
 from object_detection.utils import ops as utils_ops
+import numpy as np
+import os
+import six.moves.urllib as urllib
+import sys
+import tarfile
+import tensorflow as tf
+import zipfile
 
-tf_version = tf.__version__
-
-if int(tf_version.split('.')[0]) >= 2:
-    import tensorflow.compat.v1 as tf
-    tf.disable_v2_behavior()
+from collections import defaultdict
+from io import StringIO
+from matplotlib import pyplot as plt
+from PIL import Image
+import os
+import glob
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
 PATH_TO_CKPT = './graphs/frozen_inference_graph.pb'
@@ -25,17 +25,15 @@ PATH_TO_LABELS = './graphs/label_map.pbtxt'
 # Path to the images you want to infer
 PATH_TO_TEST_IMAGES_DIR = './images'
 
-# Number of classes that you have in your label_map
-NUM_CLASSES = 90
-
 assert os.path.isfile('./graphs/frozen_inference_graph.pb')
 assert os.path.isfile(PATH_TO_LABELS)
 
-TEST_IMAGE_PATHS = glob.glob(os.path.join(PATH_TO_TEST_IMAGES_DIR, '*.jpg*'))
+TEST_IMAGE_PATHS = glob.glob(os.path.join(PATH_TO_TEST_IMAGES_DIR, "*.*"))
 assert len(TEST_IMAGE_PATHS) > 0, 'No image found in `{}`.'.format(
     PATH_TO_TEST_IMAGES_DIR)
 
 try:
+
     detection_graph = tf.Graph()
     with detection_graph.as_default():
         od_graph_def = tf.GraphDef()
@@ -46,7 +44,7 @@ try:
 
     label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
     categories = label_map_util.convert_label_map_to_categories(
-        label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
+        label_map, max_num_classes=2, use_display_name=True)
     category_index = label_map_util.create_category_index(categories)
 
     def load_image_into_numpy_array(image):
@@ -118,10 +116,8 @@ try:
 
         im_width, im_height = image.size
 
-        file_name = image.filename.split('/')[2].split('.')[0]
-
         im_width_inche = im_width // 77
-        im_height_inche = im_height // 77 # redimensioning the image resolution
+        im_height_inche = im_height // 77 #redimensioning the image resolution
 
         IMAGE_SIZE = (im_width_inche, im_height_inche)
 
@@ -140,7 +136,6 @@ try:
             output_dict['detection_classes'],
             output_dict['detection_scores'],
             category_index,
-            file_name=file_name,
             instance_masks=output_dict.get('detection_masks'),
             use_normalized_coordinates=True,
             line_thickness=10)
