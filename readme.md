@@ -1,5 +1,3 @@
-![auto-annotate-logo](https://raw.githubusercontent.com/Lucs1590/auto_annotate/master/images/logo.png)
-# Auto-annotate
 ### Welcome to the auto-annotate images for TensorFlow object detection!
 
 You are tired to label your images by hand to work with object detection? So, this project will make your life easier, just annotate some images and let the machine do the rest for you!
