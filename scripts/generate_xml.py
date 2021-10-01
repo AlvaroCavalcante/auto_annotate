@@ -10,29 +10,33 @@ class GenerateXml(object):
         self.file_name = file_name
 
     def gerenate_basic_structure(self):
-        annotation = ET.Element('annotation')
-        ET.SubElement(annotation, 'filename').text = self.file_name + '.jpg'
-        size = ET.SubElement(annotation, 'size')
-        ET.SubElement(size, 'width').text = str(self.im_width)
-        ET.SubElement(size, 'height').text = str(self.im_height)
-        ET.SubElement(size, 'depth').text = '3'
-        
-        count = 0
-        for box in self.box_array:
-            objectBox = ET.SubElement(annotation, 'object')
-            ET.SubElement(objectBox, 'name').text = self.inferred_class[count]
-            ET.SubElement(objectBox, 'pose').text = 'Unspecified'
-            ET.SubElement(objectBox, 'truncated').text = '0'
-            ET.SubElement(objectBox, 'difficult').text = '0'
-            bndBox = ET.SubElement(objectBox, 'bndbox')
-            ET.SubElement(bndBox, 'xmin').text = str(box['xmin'])
-            ET.SubElement(bndBox, 'ymin').text = str(box['ymin'])
-            ET.SubElement(bndBox, 'xmax').text = str(box['xmax'])
-            ET.SubElement(bndBox, 'ymax').text = str(box['ymax'])
-            count += 1
+        try:
+            annotation = ET.Element('annotation')
+            ET.SubElement(annotation, 'filename').text = self.file_name + '.jpg'
+            size = ET.SubElement(annotation, 'size')
+            ET.SubElement(size, 'width').text = str(self.im_width)
+            ET.SubElement(size, 'height').text = str(self.im_height)
+            ET.SubElement(size, 'depth').text = '3'
+            
+            count = 0
+            for box in self.box_array:
+                objectBox = ET.SubElement(annotation, 'object')
+                ET.SubElement(objectBox, 'name').text = self.inferred_class[count]
+                ET.SubElement(objectBox, 'pose').text = 'Unspecified'
+                ET.SubElement(objectBox, 'truncated').text = '0'
+                ET.SubElement(objectBox, 'difficult').text = '0'
+                bndBox = ET.SubElement(objectBox, 'bndbox')
+                ET.SubElement(bndBox, 'xmin').text = str(box['xmin'])
+                ET.SubElement(bndBox, 'ymin').text = str(box['ymin'])
+                ET.SubElement(bndBox, 'xmax').text = str(box['xmax'])
+                ET.SubElement(bndBox, 'ymax').text = str(box['ymax'])
+                count += 1
 
-        arquivo = ET.ElementTree(annotation)
-        arquivo.write('your-local-path-here/xml/' + self.file_name + '.xml')
+            arquivo = ET.ElementTree(annotation)
+            arquivo.write('your-local-path-here/xml/' + self.file_name + '.xml')
+        except Exception as e:
+            print('Error to generate the XML for image {}'.format(self.file_name))
+            print(e)
 
 def main():
     # just for debuggind

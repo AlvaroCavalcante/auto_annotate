@@ -54,9 +54,13 @@ category_index = label_map_util.create_category_index_from_labelmap(args.labelma
 detect_fn = tf.saved_model.load(args.saved_model)
 
 for img in os.listdir(args.imgs):
-    file_name = img.split('.')[0]
-    img = np.array(ImageOps.exif_transpose(Image.open(args.imgs+'/'+img)))
-    result_img = infer_images(detect_fn, img, category_index, file_name)
-            
-    result_img = cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB)
-    cv2.imwrite('./results/'+ file_name + '.jpg', result_img)
+    try:
+        file_name = img.split('.')[0]
+        img = np.array(ImageOps.exif_transpose(Image.open(args.imgs+'/'+img)))
+        result_img = infer_images(detect_fn, img, category_index, file_name)
+                
+        result_img = cv2.cvtColor(result_img, cv2.COLOR_BGR2RGB)
+        cv2.imwrite('./results/'+ file_name + '.jpg', result_img)
+    except Exception as e:
+        print('Error to process image {}'.format(file_name))
+        print(e)
