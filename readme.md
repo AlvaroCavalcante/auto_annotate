@@ -10,7 +10,7 @@ Are you tired to label your images by hand to work with object detection? Have h
     - [TensorFlow >= 2.x](#greater)
 - [Any trouble?](#trouble)
 
-----
+
 ## Requirements <a id="requirements"></a>
 - You will need to [clone the TensorFlow repository](https://github.com/tensorflow/models)
 - Install the [dependencies](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/tensorflow-1.14/install.html) for object detection
