@@ -44,6 +44,8 @@ import matplotlib
 matplotlib.use('Agg')  # pylint: disable=multiple-statements
 
 
+_TITLE_LEFT_MARGIN = 10
+_TITLE_TOP_MARGIN = 10
 STANDARD_COLORS = [
     'AliceBlue', 'Chartreuse', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque',
     'BlanchedAlmond', 'BlueViolet', 'BurlyWood', 'CadetBlue', 'AntiqueWhite',
@@ -819,8 +821,7 @@ def visualize_boxes_and_labels_on_image_array(
                 if not skip_labels:
                     if not agnostic_mode:
                         if classes[i] in six.viewkeys(category_index):
-                            class_name.append(
-                                category_index[classes[i]]['name'])
+                            class_name.append(category_index[classes[i]]['name'])
                             new_xml = True
                         else:
                             class_name.append('N/A')
@@ -893,11 +894,10 @@ def visualize_boxes_and_labels_on_image_array(
                 color=color,
                 radius=line_thickness / 2,
                 use_normalized_coordinates=use_normalized_coordinates)
-
+    
     if new_xml != False:
-        xml = generate_xml.GenerateXml(
-            array_position, im_width, im_height, class_name, file_name)
-        xml.gerenate_basic_structure()
+      xml = generate_xml.GenerateXml(array_position, im_width, im_height, class_name, file_name)
+      xml.gerenate_basic_structure()
 
     return image
 
