@@ -3,3 +3,4 @@
 *.pbtxt
 *.xml
 *.vscode
+*.pyc
