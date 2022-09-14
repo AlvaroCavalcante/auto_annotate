@@ -15,6 +15,7 @@ Example:
 """
 
 import glob
+import argparse
 
 import numpy as np
 import tensorflow as tf
@@ -148,6 +149,17 @@ def load_label_map(label_map_path: str) -> dict:
 
 
 if __name__ == '__main__':
-    AutoAnnotate('/home/alvaro/Desktop/hand-face-detector/signer_independent_model/saved_model',
-                 '/home/alvaro/Desktop/video2tfrecord/src/utils/label_map.pbtxt',
-                 '/home/alvaro/Downloads/signs_prox_test').generate_annotations()
+    parser = argparse.ArgumentParser(description='Auto annotation arguments.')
+    parser.add_argument('--label_map_path', type=str, help='The path of the label_map.pbtxt file containing the classes.')
+    parser.add_argument('--saved_model_path', type=str, help='The path of the saved model folder.')
+    parser.add_argument('--imgs_path', type=str, help='The path of the images that will be annotated.')
+    parser.add_argument('--xml_path', type=str, help='The path where the xml files will be saved.', default=None)
+    parser.add_argument('--threshold', type=float, help='The path where the xml files will be saved.', default=0.5)
+
+    args = parser.parse_args()
+
+    AutoAnnotate(args.saved_model_path,
+                 args.label_map_path,
+                 args.imgs_path,
+                 args.xml_path,
+                 args.threshold).generate_annotations()
