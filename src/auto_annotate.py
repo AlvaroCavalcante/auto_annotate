@@ -1,4 +1,19 @@
-import os
+"""Generate xml annotations for your TensorFlow Object Detection models.
+
+This library is used to generate xml annotations and simplify the process
+of creating a labeled dataset. It uses a pre-trained model to detect objects
+and generates the annotations for each detected object based on a threshold.
+
+Example:
+
+    auto_ann = AutoAnnotate(
+        'path/to/saved_mdel',
+        'path/to/label_map.pbtxt',
+        'path/to/images'
+    )
+    auto_ann.generate_annotations()
+"""
+
 import glob
 
 import numpy as np
@@ -10,6 +25,17 @@ import generate_xml
 
 
 class AutoAnnotate():
+    """Class used to generate xml annotations for TensorFlow object detection models.
+
+    Attributes:
+        model: A TensorFlow model used to detect objects.
+        category_index: A dictionary containing the class names from label map.
+        images_path: A string containing the path to the images to annotate.
+        images: A list containing the complete path of all images to annotate.
+        xml_path: A string containing the path to save the xml annotations.
+        detection_threshold: A float containing the threshold to filter detections.
+        xml_generator: An instance of GenerateXml class.
+    """
 
     def __init__(self, saved_model_path: str, label_map_path: str, images_path: str, xml_path: str = None, detection_threshold: float = 0.5) -> None:
         self.model = load_detection_model(saved_model_path)
@@ -21,6 +47,8 @@ class AutoAnnotate():
         self.xml_generator = generate_xml.GenerateXml(self.xml_path)
 
     def generate_annotations(self) -> None:
+        """Iterates over all images and generates the annotations for each one."""
+
         print(f'Found {len(self.images)} images to annotate.')
 
         for image in self.images:
@@ -78,7 +106,7 @@ class AutoAnnotate():
 
         return class_names, bounding_boxes
 
-    def _get_box_coordinates(self, boxes, heigth, width, index) -> tuple:
+    def _get_box_coordinates(self, boxes: list, heigth: int, width: int, index: int) -> tuple:
         xmin, xmax, ymin, ymax = boxes[index][1], boxes[index][3], boxes[index][0], boxes[index][2]
         xmin, xmax, ymin, ymax = int(
             xmin * width), int(xmax * width), int(ymin * heigth), int(ymax * heigth)
@@ -87,6 +115,13 @@ class AutoAnnotate():
 
 
 def load_detection_model(saved_model_path: str) -> tf.saved_model.load:
+    """Loads an object detection model from path
+
+    Args: saved_model_path (str): Path to saved model directory.
+
+    Returns:
+        A tf.saved_model.load object.
+    """
     try:
         print('Loading model into memory...')
         return tf.saved_model.load(saved_model_path)
@@ -96,6 +131,14 @@ def load_detection_model(saved_model_path: str) -> tf.saved_model.load:
 
 
 def load_label_map(label_map_path: str) -> dict:
+    """Loads label map from pbtxt file.
+
+    Args:
+        label_map_path (str): Path to label map file.
+
+    Returns:
+        A dict containing the class names that are in the label map.
+    """
     try:
         print('Loading label map...')
         return label_map_util.create_category_index_from_labelmap(label_map_path, use_display_name=True)
