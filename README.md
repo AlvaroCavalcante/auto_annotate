@@ -1,17 +1,16 @@
 ![auto-annotate-logo](https://raw.githubusercontent.com/Lucs1590/auto_annotate/master/images/logo.png)
 # Auto Annotation Tool for TensorFlow Object Detection
-
-Are you tired to label your images by hand to work with object detection? Have hundreds or thousands of images to label? Then this project will make your life easier, just create some annotations and let the machine do the rest for you!
+--------------------------------------
+Are you tired to label your images by hand when working with object detection? Have hundreds or thousands of images to label? Then this project will make your life easier, just create some annotations and let the machine do the rest for you!
 
 ## Contents
-- [Requirements](#requirements)
-- [How to run](#usage)
-    - [TensorFlow < 2.x](#minor)
-    - [TensorFlow >= 2.x](#greater)
-- [Any trouble?](#trouble)
+--------------------------------------
+
+- [Installation](#installation)
 
 
-## Requirements <a id="requirements"></a>
+## Installation <a id="installation"></a>
+--------------------------------------
 - You will need to [clone the TensorFlow repository](https://github.com/tensorflow/models)
 - Install the [dependencies](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/tensorflow-1.14/install.html) for object detection
 
