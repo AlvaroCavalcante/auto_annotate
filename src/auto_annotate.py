@@ -20,6 +20,7 @@ import argparse
 import numpy as np
 import tensorflow as tf
 from PIL import Image, ImageOps
+from tqdm import tqdm
 
 import label_map_util
 import generate_xml
@@ -52,7 +53,7 @@ class AutoAnnotate():
 
         print(f'Found {len(self.images)} images to annotate.')
 
-        for image in self.images:
+        for image in tqdm(self.images, colour='green'):
             try:
                 img = np.array(ImageOps.exif_transpose(Image.open(image)))
                 im_height, im_width, _ = img.shape
