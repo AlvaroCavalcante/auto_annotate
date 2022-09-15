@@ -4,3 +4,6 @@
 *.xml
 *.vscode
 *.pyc
+build/
+dist/
+auto_annot/
