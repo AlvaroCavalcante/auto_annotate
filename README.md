@@ -11,7 +11,7 @@ Are you tired to label your images by hand when working with object detection? H
     - [Code](#code)
 - [Contribute](#contribute)
 
-# :thinking: How it works <a id="how"></a>
+# 🤔 How it works <a id="how"></a>
 This auto annotation tool is based on the idea of a semi-supervised architecture, where a model trained with a small amount of labeled data is used to produce the new labels for the rest of the dataset.
 
 As simple as that, the library uses an initial and simplified object detection model to generate the XML files with the image annotations (considering the PASCAL VOC format).
@@ -26,7 +26,7 @@ It's hard to determine the number of images to label manually, once it depends o
 
 After training this initial model, export your best checkpoint to the [SavedModel](https://www.tensorflow.org/guide/saved_model) format and you'll be ready to use the auto annotation tool!
 
-# :floppy_disk: Installation <a id="installation"></a>
+# 💾 Installation <a id="installation"></a>
 It's recommended to use a Python [virtual environment](https://docs.python.org/3/library/venv.html) to avoid any compatibility issue with your TensorFlow version. 
 
 In your environment, you can install the project using pip:
@@ -34,7 +34,7 @@ In your environment, you can install the project using pip:
 $ pip install auto-annotate
 ```
 
-# :man_scientist: Usage <a id="usage"></a>
+# 👨‍🔬	Usage <a id="usage"></a>
 You can use this tool either from the command line or directly in your Python code. For both, you'll have the same set of parameters:
 - saved_model_path: The path of the **saved_model** folder with the initial model.
 - label_map_path: The path of the **label_map.pbtxt** file.
@@ -65,7 +65,7 @@ ann_tool = AutoAnnotate(
 
 ann_tool.generate_annotations()
 ```
-# :handshake: Contribute <a id="contribute"></a>
+# 🤝 Contribute <a id="contribute"></a>
 Contributions are welcome! Feel free to open a new issue if you have any problem to use the library of find a bug!
 
 You can also use the [discussions](https://github.com/AlvaroCavalcante/auto_annotate/discussions) section to suggest improvements and ask questions!
