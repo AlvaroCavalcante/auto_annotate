@@ -19,7 +19,7 @@ Besides that, it's possible to define a confidence threshold for the detector, a
 
 If you want to know more technical details about the project, please, refer to my Medium article (*coming soon*).
 
-# Prerequisites <a id="prerequisites"></a>
+# 📝 Prerequisites <a id="prerequisites"></a>
 To use this library you will need a pre-trained object detection model with a subsample of your dataset. As a semi-supervised solution, it's impossible to avoid manual annotation, but you'll need to label just a small amount of your data.
 
 It's hard to determine the number of images to label manually, once it depends on the complexity of your problem. If you want to detect dogs and cats and have 2000 images in your dataset, for example, probably 200 images are enough (100 per class). On the other hand, if you have dozens of classes or objects that are hard to detect, you should need more manual annotations to see the benefits of the semi-supervised approach.
