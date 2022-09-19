@@ -3,3 +3,8 @@
 *.pbtxt
 *.xml
 *.vscode
+*.pyc
+build/
+dist/
+auto_annot/
+src/auto_annotate.egg-info/
