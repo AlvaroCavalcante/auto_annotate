@@ -17,7 +17,7 @@ This auto annotation tool is based on the idea of a semi-supervised architecture
 As simple as that, the library uses an initial and simplified object detection model to generate the XML files with the image annotations (considering the PASCAL VOC format).
 Besides that, it's possible to define a confidence threshold for the detector, acting as a trade-off for the generated predictions.
 
-If you want to know more technical details about the project, please, refer to my Medium article (*coming soon*).
+If you want to know more technical details about the project, please, refer to my [Medium article](https://medium.com/p/acf410a600b8#9e0e-aaa30a9f4b7a).
 
 # 📝 Prerequisites <a id="prerequisites"></a>
 To use this library you will need a pre-trained object detection model with a subsample of your dataset. As a semi-supervised solution, it's impossible to avoid manual annotation, but you'll need to label just a small amount of your data.
