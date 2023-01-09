@@ -60,7 +60,7 @@ setup(
         'numpy==1.24.1',
         'tensorflow==2.11.0',
         'Pillow==9.4.0',
-        'tqdm==4.64.0',
+        'tqdm==4.64.1',
         'six==1.14.0'
     ]
 )
