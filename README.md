@@ -1,5 +1,7 @@
 ![auto-annotate-logo](https://raw.githubusercontent.com/AlvaroCavalcante/auto_annotate/23fb772ea321877d6850ccb48c45a19da9a6fa48/assets/logo.png)
 
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AlvaroCavalcante/auto_annotate/blob/master/assets/auto_annotate_example.ipynb)
+
 # Auto Annotation Tool for TensorFlow Object Detection
 Are you tired to label your images by hand when working with object detection? Have hundreds or thousands of images to label? Then this project will make your life easier, just create some annotations and let the machine do the rest for you!
 
