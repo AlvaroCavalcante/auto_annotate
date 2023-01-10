@@ -16,7 +16,7 @@ long_description = read('README.md')
 
 setup(
     name='auto_annotate',
-    version='1.0.2',
+    version='1.0.5',
     description='Generate xml annotations for TensorFlow object detection models.',
     url='https://github.com/AlvaroCavalcante/auto_annotate',
     download_url='https://github.com/AlvaroCavalcante/auto_annotate',
@@ -55,11 +55,11 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
 
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     install_requires=[
-        'numpy==1.24.1',
+        'numpy==1.22.4',
         'tensorflow==2.11.0',
-        'Pillow==9.4.0',
+        'Pillow==9.3.0',
         'tqdm==4.64.1',
         'six==1.16.0'
     ]
