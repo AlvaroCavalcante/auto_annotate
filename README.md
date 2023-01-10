@@ -73,7 +73,7 @@ For a complete working example, you can refer to this [Google Colab Notebook](ht
 # 🤝 Contribute <a id="contribute"></a>
 Contributions are welcome! Feel free to open a new issue if you have any problem to use the library of find a bug!
 
-You can also use the [discussions](https://github.com/AlvaroCavalcante/auto_annotate/discussions) section to suggest improvements and ask questions! If you find this project useful, don't forget to give it a :star:. You can also support the project bellow:
+You can also use the [discussions](https://github.com/AlvaroCavalcante/auto_annotate/discussions) section to suggest improvements and ask questions! If you find this library useful, don't forget to give it a :star: or support the project:
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V4HQG1E)
+<a href='https://ko-fi.com/V7V4HQG1E' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
