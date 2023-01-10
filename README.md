@@ -9,6 +9,7 @@ Are you tired to label your images by hand when working with object detection? H
 - [Usage](#usage)
     - [Command line](#command-line)
     - [Code](#code)
+    - [Google Colab](#colab)
 - [Contribute](#contribute)
 
 # 🤔 How it works <a id="how"></a>
@@ -65,7 +66,14 @@ ann_tool = AutoAnnotate(
 
 ann_tool.generate_annotations()
 ```
+
+## Google Colab <a id="colab"></a>
+For a complete working example, you can refer to this [Google Colab Notebook](https://colab.research.google.com/drive/14qgA9IUYCVAALJmJabvQ9sDxrKxEezwP?usp=sharing), where I share the details about installlation and setup.
+
 # 🤝 Contribute <a id="contribute"></a>
 Contributions are welcome! Feel free to open a new issue if you have any problem to use the library of find a bug!
 
-You can also use the [discussions](https://github.com/AlvaroCavalcante/auto_annotate/discussions) section to suggest improvements and ask questions!
+You can also use the [discussions](https://github.com/AlvaroCavalcante/auto_annotate/discussions) section to suggest improvements and ask questions! If you find this project useful, don't forget to give it a :star:. You can also support the project bellow:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V4HQG1E)
+
