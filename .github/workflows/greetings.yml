@@ -9,8 +9,8 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Thanks for contributing this issue! We will be replying soon.'
-        pr-message: 'Thanks for contributing this PR! We will validade soon.'
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "Thanks for contributing this issue! We will be replying soon."
+          pr-message: "Thanks for contributing this PR! We will validade soon."
